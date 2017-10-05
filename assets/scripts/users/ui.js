@@ -1,6 +1,7 @@
 'use strict'
 const app = require('../app.js')
 const events = require('./events.js')
+const expenseEvents = require('../expenses/events.js')
 
 // if successfully signed up
 const createAccountSuccess = function () {
@@ -9,10 +10,10 @@ const createAccountSuccess = function () {
   $('#errorMessageModalSignUp').empty()
   $('#create-account').hide()
   $('.modal-footer-reg').hide()
-  $('#loginButton2').show()
+  $('#signUpSuccessinButton2').show()
   $('#create-account').find('input:text').val('')
   $('#create-account').find('input:password').val('')
-  $('#signUpSuccess').prepend('<div class="row" style="text-align: center; color: black"> <p>You are now signed up. Please login. </p></div>')
+  $('#signUpSuccess').prepend('<div class="row" style="text-align: center; color: black"> <p>You are now signed up. Please sign in. </p></div>')
 }
 const onError = function () {
   console.log('There was problem signing up, please try again!')
@@ -27,37 +28,54 @@ const onError = function () {
 const onSigninSuccess = function (data) {
   // console.log(data.user)
   app.user = data.user
-  $('#login input').not('.submit').val('')
+  $('#signIn input').not('.submit').val('')
   $('#pwChange').show()
-  $('.register-button').hide()
-  $('.login-button').hide()
-  $('#login').find('input:text').val('')
-  $('#login').find('input:password').val('')
+  $('.create-account-button').hide()
+  $('.signin-button').hide()
+  $('#signin').find('input:text').val('')
+  $('#signin').find('input:password').val('')
+  $('#signin').hide()
+  $('.modal-footer-signin').hide()
+  $('#log-out-btn').show()
+  $('.btn btn-secondary3').show()
+  $('.modal-footer-changepwd').show()
+  expenseEvents.onGetExpense()
 }
 const onSigninFailure = function (error) {
   console.log(error)
-  $('.errorMessageModalLogin').empty()
+  $('.errorMessageModalsignin').empty()
   // console.log('Invalid username or password.')
-  $('.errorMessageModalLogin').prepend('<div class="row" style="text-align: center; color: red"> <p> ' + 'Your username or password is incorrect. Try again!' + ' </p></div>')
+  $('.errorMessageModalsignin').prepend('<div class="row" style="text-align: center; color: red"> <p> ' + 'Your username or password is incorrect. Try again!' + ' </p></div>')
 }
 
 const onLogoutSuccess = function (data) {
-  console.log(data)
+  // console.log(data)
   console.log('signed out')
-  $('.errorMessageModalLogin').empty()
- // $('#myAccountButton').hide()
- // $('.myAccountSection').hide()
- // $('#myAccountButton2').hide()
- // $('#login').show()
- // $('.register-button').show()
- // $('.login-button').show()
- // $('.modal-footer-login').show()
- // $('#registration').show()
- // $('.modal-footer-reg').show()
- // $('#log-out-btn').hide()
+  $('.errorMessageModalsignin').empty()
+  $('#signIn').show()
+  $('.signin-button').show()
+  $('.modal-footer-signin').show()
+  $('.modal-footer-reg').show()
+  $('#log-out-btn2').hide()
 }
 const onLogoutFailure = function () {
   console.log('error signing out')
+}
+
+const onResetSuccess = function () {
+  $('#reset-success').empty()
+  // console.log('password reset successful')
+  $('#passChange input').not('.submit').val('')
+  $('#passChange').hide()
+  $('.modal-footer-changepwd').hide()
+  // $('#myAccountButton2').show()
+  $('#reset-success').prepend('<div class="row" style="text-align: center; color: black"> <p><br>Your password has been reset.</p></div>')
+}
+
+const onResetFailure = function () {
+  // console.log('password reset failed')
+  $('#reset-fail').empty()
+  $('#reset-fail').prepend('<div class="row" style="text-align: center; color: red"> <p>Your password has been reset.</p></div>')
 }
 module.exports = {
   createAccountSuccess,
@@ -65,5 +83,7 @@ module.exports = {
   onSigninSuccess,
   onSigninFailure,
   onLogoutSuccess,
-  onLogoutFailure
+  onLogoutFailure,
+  onResetSuccess,
+  onResetFailure
 }

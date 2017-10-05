@@ -3,6 +3,7 @@
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const events = require('./users/events.js')
+const expenseEvents = require('./expenses/events.js')
 const getFormFields = require('../../lib/get-form-fields')
 
 $(() => {
@@ -19,5 +20,12 @@ $(document).ready(function () {
   $('#signIn').on('submit', events.signIn)
   $('#log-out-btn2').on('click', events.logoutUser)
   // $('#log-out-btn2').on('click', appEvents.logoutUser)
-  // $('#pwChange').on('submit', appEvents.resetPassword)
+  $('#pwChange').on('submit', events.resetPassword)
+  // expenseEvents.onGetExpense()
+  $('#new-expense').on('submit', expenseEvents.onCreateExpense)
+  $('#get-expenses').on('click', expenseEvents.onGetExpense)
+  $('#edit-expense').on('submit', expenseEvents.onEditExpense)
 })
+// $(document).on('click', '#edit-post', function () {
+// $('#edit-expense').show()
+// })

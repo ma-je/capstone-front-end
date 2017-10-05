@@ -35,17 +35,18 @@ const logoutUser = function () {
     .then(ui.onLogoutSuccess)
     .catch(ui.onLogoutFailure)
 }
-//
-// const resetPassword = function(event) {
-//   const data = getFormFields(this)
-//   event.preventDefault()
-//   appApi.passwordReset(data)
-//     .then(appUi.onResetSuccess)
-//     .catch(appUi.onResetFailure)
-// }
+
+const resetPassword = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.passwordReset(data)
+    .then(ui.onResetSuccess)
+    .catch(ui.onResetFailure)
+}
 
 module.exports = {
   onCreateAccount,
   signIn,
-  logoutUser
+  logoutUser,
+  resetPassword
 }

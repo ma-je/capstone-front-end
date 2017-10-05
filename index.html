@@ -33,17 +33,17 @@
         <!-- Button trigger for register -->
         <br>
         <br>
-        <button type="button" class="btn btn-secondary register-button" data-toggle="modal" data-target="#registerModal">create account</button>
+        <button type="button" class="btn btn-secondary create-account-button" data-toggle="modal" data-target="#create-accountModal">create account</button>
         <!-- Button trigger for login -->
-        <button type="button" class="btn btn-primary login-button" data-toggle="modal" data-target="#loginModal">log in</button>
+        <button type="button" class="btn btn-primary signin-button" data-toggle="modal" data-target="#signinModal">log in</button>
       </div>
       <!-- modal for createAccount start_______________________________________ -->
       <div class="container">
-        <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal fade" id="create-accountModal" tabindex="-1" role="dialog" aria-labelledby="create-accountModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="registerModalLabel">Sign Up</h5>
+                <h5 class="modal-title" id="create-accountModalLabel">Sign Up</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="close">
                          <span aria-hidden="true">&times;</span>
                        </button>
@@ -90,11 +90,11 @@
 
       <!-- modal for signIn start____________________________________________________ -->
       <div class="container">
-        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="signinModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="loginModalLabel">Sign In</h5>
+                <h5 class="modal-title" id="signinModalLabel">Sign In</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -114,12 +114,12 @@
                         <label for="password"> Password </label>
                         <input type="password" class="form-control" name="credentials[password]" placeholder="password">
                       </div>
-                      <div class="errorMessageModalLogin"></div>
+                      <div class="errorMessageModalsignin"></div>
                   </div>
                 </div>
                 <br>
-                <div class="modal-footer-login">
-                  <button type="submit" class="btn btn-info loginButton" name="submit" value="login">sign in</button>
+                <div class="modal-footer-signin">
+                  <button type="submit" class="btn btn-info signinButton" name="submit" value="signin">sign in</button>
                   <!-- <button type="submit" class="btn btn-info" name="submit" value="login" data-dismiss="modal"></button> -->
                 </div>
                 </form>
@@ -136,7 +136,7 @@
 
       <!-- modal for change-password start_______________________________________ -->
       <div class="container">
-        <div class="modal fade" id="chgpwModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal fade" id="chgpwModal" tabindex="-1" role="dialog" aria-labelledby="create-accountModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -164,7 +164,7 @@
                 <!-- </div> -->
                 <br>
                 <div class="modal-footer-changepwd">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
+                  <button type="button" class="btn btn-secondary3" data-dismiss="modal">change password</button>
                   <input type="submit" class="btn btn-info submit" name="submit" value="change password">
                 </div>
                 <div id="reset-success"></div>
@@ -184,10 +184,40 @@
     </section>
   </div>
 
-  <h1>Example</h1>
+<button id="get-expenses">Get Expenses</button>
+  <!-- <h1>Example</h1> -->
+  <div id="expenses"></div>
 
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<div>
+  <form id="new-expense">
+    <fieldset>
+      <legend></legend>
+      <h4>Create New Expense</h4></legend>
+      <input type="text" name="kind" placeholder="kind">
+      <input type="date" name="dueDate" placeholder="date">
+      <input type="decimal" name="amount" placeholder="amount due">
+      <input type="text" name="house_id" class="hidden" placeholder="house_id">
+      <input type="submit" name="submit" value="Post">
+    </fieldset>
+
+  </form>
+</div>
+
+<div>
+  <form id="edit-expense">
+    <fieldset>
+      <legend></legend>
+      <h4>Edit Expense</h4></legend>
+      <input type="text" name="kind" placeholder="kind">
+      <input type="date" name="dueDate" placeholder="date">
+      <input type="decimal" name="amount" placeholder="amount due">
+      <input type="text" name="house_id" class="hidden" placeholder="house_id">
+      <input type="text" name="expense_id" placeholder="expense_id">
+      <input type="submit" name="submit" value="Post">
+    </fieldset>
+  </form>
+</div>
+
 </body>
 
 </html>

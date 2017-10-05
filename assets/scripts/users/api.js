@@ -50,6 +50,7 @@ const passwordReset = function (data) {
     data: data
   })
 }
+
 module.exports = {
   createAccount,
   logInUser,
