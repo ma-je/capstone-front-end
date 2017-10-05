@@ -1,6 +1,8 @@
-# Temp Name of Project
+# What's it Costing Me?
+client README requirements:
 
-client readme requirements:
+This app is designed for a property owner to be able to track various expenses (i.e., water, sewage, insurance, property taxe, etc.) related to specific property(ies)
+
 
 * An embedded screenshot of the app
 * Explanations of the technologies used
@@ -9,8 +11,6 @@ client readme requirements:
 * A couple paragraphs about the general approach you took
 
 * Link to your user stories – who are your users, what do they want, and why?
-
-
 
 
 
@@ -25,6 +25,14 @@ front-end frameworks included.
 ## links to Wireframes
 * Link to your pitch deck – documentation of your wireframes, user stories, and proposed architecture
 
+### User Stories
+
+* As a user, I would like to be able to sign up in order to begin using the app
+* As a user, I'd like to be able change my password
+* As a user, I'd like to to create/post new data into the app in order to retrieve the record when needed
+* As a user, I'd like to retrieve the records I've created
+* As a user, I'd like to update the record in the event that the information was added incorrectly, or new information becomes available
+* As a user, I'd like to be able to delete a record
 
 
 ## Unresolved Problems

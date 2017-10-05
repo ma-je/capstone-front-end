@@ -1,25 +1,221 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Bill Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body class="container-fluid">
-      <h1>Example</h1>
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <!-- bootstrap css -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
-    </body>
+<body class="container-fluid">
+  <!-- nav bar________________________________________________________________ -->
+  <nav class="navbar navbar-light bg-light">
+    <!-- <a class="navbar-brand" title="Bill Tracker home"> <img src="https://i.imgur.com/5umexo6.jpg" style="max-width:125px; margin-top: -7px;" alt="logo"></a> -->
+  </nav>
+
+  <div class="container-fluid">
+    <section class="jumbotron text-center" style="background-image: url(https://i.imgur.com/5umexo6.jpg); background-size: 100% 100%;">
+      <div class="container">
+
+        <!-- <i class="mdi-content-send brown-text"></i>
+           <img src="https://i.imgur.com/g9A7APc.png" alt="yard" width="230"> -->
+        <br>
+        <br>
+        <h1 class="jumbotron-heading">Review record or enter new data</h1>
+        <h4>Create an account or sign in below if you already have an account.</h4>
+        <!-- Button trigger for register -->
+        <br>
+        <br>
+        <button type="button" class="btn btn-secondary create-account-button" data-toggle="modal" data-target="#create-accountModal">create account</button>
+        <!-- Button trigger for login -->
+        <button type="button" class="btn btn-primary signin-button" data-toggle="modal" data-target="#signinModal">log in</button>
+      </div>
+      <!-- modal for createAccount start_______________________________________ -->
+      <div class="container">
+        <div class="modal fade" id="create-accountModal" tabindex="-1" role="dialog" aria-labelledby="create-accountModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="create-accountModalLabel">Sign Up</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                         <span aria-hidden="true">&times;</span>
+                       </button>
+              </div>
+
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-md-9 push-md-3 offset-md-3">
+                    <form id="create-account" class="form-create-account">
+                      <p>Enter information below to create an account</p>
+                      <div class="input-group">
+                        <label for="password"> Email </label>
+                        <input type="text" class="form-control" name="credentials[email]" placeholder="email" aria-label="Username" aria-describedby="sizing-addon2">
+                      </div>
+                      <br>
+                      <div class="input-group">
+                        <label for="password"> Password </label>
+                        <input type="password" class="form-control" name="credentials[password]" placeholder="password">
+                      </div>
+                      <br>
+                      <div class="input-group">
+                        <label for="password-confirm"> Confirm Password </label>
+                        <input type="password" class="form-control" name="credentials[password_confirmation]" placeholder="confirm password">
+                      </div>
+                  </div>
+                </div>
+                <br>
+                <div class="modal-footer-reg">
+                  <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button> -->
+                  <input type="submit" class="btn btn-info submit" name="submit" value="create account">
+                </div>
+                <div id="signUpSuccess"></div>
+                <div id="errorMessageModalSignUp"></div>
+                </form>
+                <br>
+                <button type="button" class="btn btn-secondary cancel" data-dismiss="modal">close</button>
+                <br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- model for create-account end_________________________________________ -->
+
+      <!-- modal for signIn start____________________________________________________ -->
+      <div class="container">
+        <div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="signinModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="signinModalLabel">Sign In</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-md-9 push-md-3 offset-md-3">
+                    <form id="signIn" class="form-signIn">
+                      <p>Log in to your account </p>
+                      <div class="input-group">
+                        <label for="password"> Email </label>
+                        <input type="text" class="form-control" name="credentials[email]" placeholder="email" aria-label="Username" aria-describedby="sizing-addon2">
+                      </div>
+                      <br>
+                      <div class="input-group">
+                        <label for="password"> Password </label>
+                        <input type="password" class="form-control" name="credentials[password]" placeholder="password">
+                      </div>
+                      <div class="errorMessageModalsignin"></div>
+                  </div>
+                </div>
+                <br>
+                <div class="modal-footer-signin">
+                  <button type="submit" class="btn btn-info signinButton" name="submit" value="signin">sign in</button>
+                  <!-- <button type="submit" class="btn btn-info" name="submit" value="login" data-dismiss="modal"></button> -->
+                </div>
+                </form>
+                <br>
+                <!-- <button type="button" id="what" class="btn btn-secondary" style="background-color: #000" data-toggle="" data-target="" data-dismiss="modal">what's this?</button>  -->
+                <button class="btn btn-info" id="log-out-btn2" data-dismiss="modal"> log out </button>
+                <br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- modal for signIn end_________________________________________ -->
+
+      <!-- modal for change-password start_______________________________________ -->
+      <div class="container">
+        <div class="modal fade" id="chgpwModal" tabindex="-1" role="dialog" aria-labelledby="create-accountModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="chgpwModalLabel">Change Password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-md-9 push-md-3 offset-md-3">
+                    <form id="pwChange">
+                      <p> Change Password </p>
+                      <div class="input-group">
+                        <label for="oldPassword"> Old Password </label>
+                        <input type="password" class="form-control" name="passwords[old]" placeholder="old password">
+                      </div>
+                      <div class="input-group">
+                        <label for="newPassword"> New Password </label>
+                        <input type="password" class="form-control" name="passwords[new]" placeholder="new password">
+                      </div>
+                  </div>
+                </div>
+                <!-- </div> -->
+                <br>
+                <div class="modal-footer-changepwd">
+                  <button type="button" class="btn btn-secondary3" data-dismiss="modal">change password</button>
+                  <input type="submit" class="btn btn-info submit" name="submit" value="change password">
+                </div>
+                <div id="reset-success"></div>
+                <div id="reset-fail"></div>
+                </form>
+                <br>
+                <button type="button" id="myAccountButton2" class="btn btn-secondary" style="background-color: #000" data-toggle="" data-target="" data-dismiss="modal">go to my account</button>
+                <br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- model for change-password end_________________________________________ -->
+
+    </section>
+  </div>
+
+<button id="get-expenses">Get Expenses</button>
+  <!-- <h1>Example</h1> -->
+  <div id="expenses"></div>
+
+<div>
+  <form id="new-expense">
+    <fieldset>
+      <legend></legend>
+      <h4>Create New Expense</h4></legend>
+      <input type="text" name="kind" placeholder="kind">
+      <input type="date" name="dueDate" placeholder="date">
+      <input type="decimal" name="amount" placeholder="amount due">
+      <input type="text" name="house_id" class="hidden" placeholder="house_id">
+      <input type="submit" name="submit" value="Post">
+    </fieldset>
+
+  </form>
+</div>
+
+<div>
+  <form id="edit-expense">
+    <fieldset>
+      <legend></legend>
+      <h4>Edit Expense</h4></legend>
+      <input type="text" name="kind" placeholder="kind">
+      <input type="date" name="dueDate" placeholder="date">
+      <input type="decimal" name="amount" placeholder="amount due">
+      <input type="text" name="house_id" class="hidden" placeholder="house_id">
+      <input type="text" name="expense_id" placeholder="expense_id">
+      <input type="submit" name="submit" value="Post">
+    </fieldset>
+  </form>
+</div>
+</body>
 </html>
