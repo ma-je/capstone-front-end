@@ -3,6 +3,7 @@ const app = require('../app.js')
 const events = require('./events.js')
 
 const loopExpenses = function (data) {
+  $('#expenses').empty()
   for (let i = 0; i < data.expenses.length; i++) {
     $('#expenses').append(
       '<p>' + 'Expense Id: ' + data.expenses[i].id + ' ' + data.expenses[i].kind + ' ' + data.expenses[i].dueDate + ' ' + data.expenses[i].amount + ' ' + '</p>' +
@@ -32,9 +33,13 @@ const editExpenseSuccess = function (data) {
   console.log('expenses has been edited')
   console.log('you have reached ui.js update-posts')
 }
+const deleteExpenseSuccess = function (data) {
+  console.log('Post deleted')
+}
 module.exports = {
   onGetExpenseSuccess,
   onCreateExpenseSucess,
   onError,
-  editExpenseSuccess
+  editExpenseSuccess,
+  deleteExpenseSuccess
 }

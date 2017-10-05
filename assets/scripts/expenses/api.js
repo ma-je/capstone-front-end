@@ -24,7 +24,7 @@ const getExpenses = function () {
     url: app.host + '/expenses/',
     method: 'GET',
     headers: {
-      Authorizaton: 'Token token=' + app.user.token
+      Authorization: 'Token token=' + app.user.token
     }
   })
 }
@@ -47,19 +47,18 @@ const editExpense = function (data) {
     }
   })
 }
-// const deleteExpense = function (deleteId) {
-//   return $.ajax({
-//     url: app.host + '/expenses/' + deleteId,
-//     method: 'DELETE',
-//     headers: {
-//       Authorization: 'Token token=' + app.user.token
-//     }
-//   })
-// }
+const deleteExpense = function (data) {
+  return $.ajax({
+    url: app.host + '/expenses/' + data,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    }
+  })
+}
 module.exports = {
   getExpenses,
   createExpense,
-  // getExpenses,
-  editExpense
-  // deleteExpense
+  editExpense,
+  deleteExpense
 }

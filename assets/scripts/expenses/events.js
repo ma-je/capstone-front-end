@@ -33,9 +33,16 @@ const onEditExpense = function (event) {
     .then(ui.editExpenseSuccess)
     .catch(ui.onError)
 }
+const onDeleteExpense = function (event) {
+  event.preventDefault()
+  console.log(event.target.id)
+  api.deleteExpense(event.target.id)
+    .then(ui.deleteExpenseSuccess)
+    .catch(ui.onError)
+}
 module.exports = {
-  // onExpenseSuccess,
   onGetExpense,
   onCreateExpense,
-  onEditExpense
+  onEditExpense,
+  onDeleteExpense
 }
