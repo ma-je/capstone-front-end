@@ -15,7 +15,44 @@ const createAccount = function (data) {
     }
   })
 }
+const logInUser = function (data) {
+  // console.log(data)
+  return $.ajax({
+    url: app.host + '/sign-in/',
+    method: 'POST',
+    data: {
+      'credentials': {
+        'email': data.credentials.email,
+        'password': data.credentials.password
+      }
+    }
+  })
+}
 
+const logOut = function (id) {
+  return $.ajax({
+    url: app.host + '/sign-out/' + app.user.id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    }
+  })
+}
+
+const passwordReset = function (data) {
+  // console.log(data)
+  return $.ajax({
+    method: 'PATCH',
+    url: app.host + '/change-password/' + app.user.id,
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    },
+    data: data
+  })
+}
 module.exports = {
-  createAccount
+  createAccount,
+  logInUser,
+  logOut,
+  passwordReset
 }

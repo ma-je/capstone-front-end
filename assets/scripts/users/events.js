@@ -8,23 +8,44 @@ const onCreateAccount = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   console.log(data)
-  if (data.credentials.password !== data.credentials.password_confirmation) {
+  if (data.credentials.password === data.credentials.password_confirmation) {
+    // console.log('hit')
     api.createAccount(data)
-      .then(ui.CreateAccountSuccess)// if works
+      .then(ui.createAccountSuccess)// if works
       .catch(ui.onError) // if doesn't work
   } else {
     ui.onError()
   }
 }
-//    if (data.credentials.password === data.credentials.password_confirmation) {
-// api.signUpUser(data)
-//     .then(ui.onSignupSuccess) // if works
-//     .catch(ui.signUpFailure) // if doesn't work
-//    } } else {
-//      blogUi.signUpFailure()
-//    }
-//   // going to have some error popping saying passwords dont match
+
+// event handler for login form
+const signIn = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  console.log('hi')
+  api.logInUser(data)
+    .then(ui.onSigninSuccess)
+    .catch(ui.onSigninFailure)
+}
+
+const logoutUser = function () {
+  // const data = getFormFields(this)
+  event.preventDefault(event)
+  api.logOut()
+    .then(ui.onLogoutSuccess)
+    .catch(ui.onLogoutFailure)
+}
+//
+// const resetPassword = function(event) {
+//   const data = getFormFields(this)
+//   event.preventDefault()
+//   appApi.passwordReset(data)
+//     .then(appUi.onResetSuccess)
+//     .catch(appUi.onResetFailure)
 // }
+
 module.exports = {
-  onCreateAccount
+  onCreateAccount,
+  signIn,
+  logoutUser
 }
