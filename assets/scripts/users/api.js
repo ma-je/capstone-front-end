@@ -3,6 +3,7 @@ const app = require('../app.js')
 // to add a user - subscribe
 // review variable names
 const createAccount = function (data) {
+  console.log("app.host = ", app.host)
   return $.ajax({
     url: app.host + '/sign-up',
     method: 'POST',
