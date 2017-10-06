@@ -1,8 +1,9 @@
 const app = require('../app.js')
+const config = require('../config.js')
 
 const createExpense = function (data) {
   return $.ajax({
-    url: app.host + '/expenses',
+    url: config.apiOrigin + '/expenses',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + app.user.token
@@ -21,7 +22,7 @@ const createExpense = function (data) {
 const getExpenses = function () {
   console.log(app.user)
   return $.ajax({
-    url: app.host + '/expenses/',
+    url: config.apiOrigin + '/expenses/',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + app.user.token
@@ -31,7 +32,7 @@ const getExpenses = function () {
 const editExpense = function (data) {
   console.log('edit expense ' + data)
   return $.ajax({
-    url: app.host + '/expenses/' + data.expense_id,
+    url: config.apiOrigin + '/expenses/' + data.expense_id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + app.user.token
@@ -49,7 +50,7 @@ const editExpense = function (data) {
 }
 const deleteExpense = function (data) {
   return $.ajax({
-    url: app.host + '/expenses/' + data,
+    url: config.apiOrigin + '/expenses/' + data,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + app.user.token

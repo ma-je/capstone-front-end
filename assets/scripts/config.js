@@ -1,10 +1,10 @@
 'use strict'
 
 const config = {
-  apiOrigins: {
+  apiOrigins:
+  {
     production: 'https://floating-anchorage-61832.herokuapp.com',
     development: 'http://localhost:4741'
-
   }
 }
 
