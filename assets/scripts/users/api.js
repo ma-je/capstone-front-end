@@ -18,6 +18,7 @@ const createAccount = function (data) {
   })
 }
 const logInUser = function (data) {
+  console.log('app.host = ', config.apiOrigin)
   // console.log(data)
   return $.ajax({
     url: config.apiOrigin + '/sign-in/',
@@ -32,6 +33,7 @@ const logInUser = function (data) {
 }
 
 const logOut = function (id) {
+  console.log('app.host = ', config.apiOrigin)
   return $.ajax({
     url: config.apiOrigin + '/sign-out/' + app.user.id,
     method: 'DELETE',
