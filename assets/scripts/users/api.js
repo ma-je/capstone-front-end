@@ -1,11 +1,12 @@
 const app = require('../app.js')
+const config = require('../config.js')
 
 // to add a user - subscribe
 // review variable names
 const createAccount = function (data) {
-  console.log("app.host = ", app.host)
+  console.log('app.host = ', config.apiOrigin)
   return $.ajax({
-    url: app.host + '/sign-up',
+    url: config.apiOrigin + '/sign-up',
     method: 'POST',
     data: {
       'credentials': {
