@@ -1,17 +1,22 @@
 # What's it Costing Me? (Bill Tracker)
 This app is designed for a property owner to be able to track various expenses (i.e., water, sewage, insurance, property taxe, etc.) related to specific property(ies). The app was created with HTML, CSS, bootstrap, jQuery, and Javascript on the front end. The back end was constructed with PostgreSQL and Ruby on Rails.
 
-For the moment, this is the landing page <a href="https://imgur.com/7wxClqH"><img src="https://i.imgur.com/7wxClqH.png" title="source: imgur.com" /></a>
+For the moment, this is the landing page
+
+https://imgur.com/7wxClqH
 
 ## General Approach to App Development
-As with any app development process, this one started with planning - thinking through the tupes of data was required, how to structure the idenified data types and decide on the tools that would best suit this app. Once that was decided, the process moved on to creating the ERDS, which in the end consists of three (3) tables: a users, houses, and expenses table. The ERD is available on the Api README, but can be seen here <a href="https://imgur.com/iqKis79"><img src="https://i.imgur.com/iqKis79.jpg?2" title="source: imgur.com" /></a>
+As with any app development process, this one started with planning - thinking through the tupes of data was required, how to structure the idenified data types and decide on the tools that would best suit this app. Once that was decided, the process moved on to creating the ERDS, which in the end consists of three (3) tables: a users, houses, and expenses table. The ERD is available on the Api README, but can be seen here
+
+https://imgur.com/iqKis79
 
 ## links to Wireframes
 Upong landing on the app page, a user would be prompted (via pop up modal) to create an accout or sign in if an account already exists. For the moment, the site is set up for testing functionality. Once fully completed, the landing page would only display the user account interface. Upon successfully signed in the user would then be able to GET all associated users and be able to take all of the CRUD actions. Below is the Link to  a very rough, quick sketch of the app wireframes.
 
+https://imgur.com/Jd7RJEc
+
 The app was built upon a template (both api and front end) provided by General Assembly. The template is available for download on their github page.
 
-<a href="https://imgur.com/Jd7RJEc"><img src="https://i.imgur.com/Jd7RJEc.jpg?3" title="source: imgur.com" /></a>
 
 ### User Stories
 
