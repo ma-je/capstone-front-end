@@ -28,7 +28,8 @@
            <img src="https://i.imgur.com/g9A7APc.png" alt="yard" width="230"> -->
         <br>
         <br>
-        <h1 class="jumbotron-heading">Review record or enter new data</h1>
+        <h1 class="jumbotron-heading">Bill Tracker</h1>
+        <h3>Review record or enter new data</h3>
         <h4>Create an account or sign in below if you already have an account.</h4>
         <!-- Button trigger for register -->
         <br>
@@ -120,7 +121,7 @@
                 <br>
                 <div class="modal-footer-signin">
                   <button type="submit" class="btn btn-info signinButton" name="submit" value="signin">sign in</button>
-                  <!-- <button type="submit" class="btn btn-info" name="submit" value="login" data-dismiss="modal"></button> -->
+                  <button type="Submit" id="showChangePassButton" class="btn btn-info " data-toggle="modal" data-target="#chgpwModal">change password</button>
                 </div>
                 </form>
                 <br>
@@ -144,6 +145,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="close">
                     <span aria-hidden="true">&times;</span>
                   </button>
+                  <button type=“button” class=“btn btn-primary” id=“passChange”>Reset</button>
               </div>
 
               <div class="modal-body">
@@ -164,7 +166,7 @@
                 <!-- </div> -->
                 <br>
                 <div class="modal-footer-changepwd">
-                  <button type="button" class="btn btn-secondary3" data-dismiss="modal">change password</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
                   <input type="submit" class="btn btn-info submit" name="submit" value="change password">
                 </div>
                 <div id="reset-success"></div>
@@ -178,8 +180,7 @@
           </div>
         </div>
       </div>
-
-      <!-- model for change-password end_________________________________________ -->
+<!-- model for change-password end_________________________________________ -->
 
     </section>
   </div>

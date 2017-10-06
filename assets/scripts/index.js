@@ -20,7 +20,7 @@ $(document).ready(function () {
   $('#signIn').on('submit', events.signIn)
   $('#log-out-btn2').on('click', events.logoutUser)
   // $('#log-out-btn2').on('click', appEvents.logoutUser)
-  $('#pwChange').on('submit', events.resetPassword)
+  $('#pwChange').on('click', events.resetPassword)
   // expenseEvents.onGetExpense()
   $('#new-expense').on('submit', expenseEvents.onCreateExpense)
   $('#get-expenses').on('click', expenseEvents.onGetExpense)

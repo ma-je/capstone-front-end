@@ -29,16 +29,18 @@ const onSigninSuccess = function (data) {
   // console.log(data.user)
   app.user = data.user
   $('#signIn input').not('.submit').val('')
-  $('#pwChange').show()
+  $('#passChange').show()
   $('.create-account-button').hide()
   $('.signin-button').hide()
   $('#signin').find('input:text').val('')
   $('#signin').find('input:password').val('')
-  $('#signin').hide()
+  $('#signIn').hide()
   $('.modal-footer-signin').hide()
   $('#log-out-btn').show()
   $('.btn btn-secondary3').show()
   $('.modal-footer-changepwd').show()
+  $('#showChangePassButton').show()
+  $('#passChange').show()
   expenseEvents.onGetExpense()
 }
 const onSigninFailure = function (error) {
@@ -64,7 +66,7 @@ const onLogoutFailure = function () {
 
 const onResetSuccess = function () {
   $('#reset-success').empty()
-  // console.log('password reset successful')
+  console.log('password reset successful')
   $('#passChange input').not('.submit').val('')
   $('#passChange').hide()
   $('.modal-footer-changepwd').hide()
