@@ -13,8 +13,8 @@ const createExpense = function (data) {
         'user_id': app.user.id,
         'kind': data.kind,
         'dueDate': data.dueDate,
-        'amount': data.amount
-        // 'house_id': 1
+        'amount': data.amount,
+        'house_id': 1
       }
     }
   })
