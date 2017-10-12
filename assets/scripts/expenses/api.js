@@ -12,7 +12,7 @@ const createExpense = function (data) {
       'expense': {
         'user_id': app.user.id,
         'kind': data.kind,
-        'dueDate': data.date,
+        'dueDate': data.dueDate,
         'amount': data.amount,
         'house_id': 1
       }
