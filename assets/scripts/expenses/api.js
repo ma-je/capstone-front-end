@@ -14,7 +14,7 @@ const createExpense = function (data) {
         'kind': data.kind,
         'dueDate': data.dueDate,
         'amount': data.amount,
-        'house_id': 1
+        // 'house_id': 1
       }
     }
   })
