@@ -1,15 +1,23 @@
 'use strict'
 const app = require('../app.js')
 const events = require('./events.js')
+const template = require('../handlebars-data')
 
 const loopExpenses = function (data) {
+  // debugger
   $('#expenses').empty()
   for (let i = 0; i < data.expenses.length; i++) {
-    $('#expenses').append(
-      '<p>' + 'Expense Id: ' + data.expenses[i].id + ' ' + data.expenses[i].kind + ' ' + data.expenses[i].dueDate + ' ' + data.expenses[i].amount + ' ' + '</p>' +
-      '<button class="delete-post" data-id="' + data.expenses[i].id + '" id="' + data.expenses[i].id + '" type="button" class="btn">Delete</button>' +
-            '<button class="edit-post" id="' + data.expenses[i].id + '" type="button" class="btn">Edit</button>'
-    )
+    const expenses = data.expenses.length
+    const kind = data.expenses[i].kind
+    const dueDate = data.expenses[i].dueDate
+    const amount = data.expenses[i].amount
+    const dataId = data.expenses[i].id
+    template.tableHandlebars(expenses, kind, dueDate, amount, dataId)
+    // $('#expenses').append(
+    //   '<p>' + 'Expense Id: ' + data.expenses[i].id + ' ' + data.expenses[i].kind + ' ' + data.expenses[i].dueDate + ' ' + data.expenses[i].amount + ' ' + '</p>' +
+    //   '<button class="delete-post" data-id="' + data.expenses[i].id + '" id="' + data.expenses[i].id + '" type="button" class="btn">Delete</button>' +
+    //         '<button class="edit-post" id="' + data.expenses[i].id + '" type="button" class="btn">Edit</button>'
+    // )
   }
 }
 // creating posts successfully

@@ -35,11 +35,12 @@ const onEditExpense = function (event) {
 }
 const onDeleteExpense = function (event) {
   event.preventDefault()
-  console.log(event.target.id)
-  api.deleteExpense(event.target.id)
+  console.log(this.dataset.id)
+  api.deleteExpense(this.dataset.id)
     .then(ui.deleteExpenseSuccess)
     .catch(ui.onError)
 }
+
 module.exports = {
   onGetExpense,
   onCreateExpense,

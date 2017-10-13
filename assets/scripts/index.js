@@ -26,4 +26,4 @@ $(document).ready(function () {
   $('#get-expenses').on('click', expenseEvents.onGetExpense)
   $('#edit-expense').on('submit', expenseEvents.onEditExpense)
 })
-$(document).on('click', '.delete-post', expenseEvents.onDeleteExpense)
+$(document).on('click', '.deleteExpense', expenseEvents.onDeleteExpense)
